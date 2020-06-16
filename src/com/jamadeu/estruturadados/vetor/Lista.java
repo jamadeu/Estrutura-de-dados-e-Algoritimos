@@ -4,12 +4,12 @@ public class Lista<T> {
 	private T[] elementos;
 	private int tamanho;
 
-	public Lista(int capacidade) {
+	public Lista(final int capacidade) {
 		this.elementos = (T[]) new Object[capacidade];
 		this.tamanho = 0;
 	}
 
-	public boolean adiciona(T elemento) {
+	public boolean adiciona(final T elemento) {
 		aumentaCapacidade();
 		if (this.tamanho < this.elementos.length) {
 			this.elementos[this.tamanho] = elemento;
@@ -20,7 +20,7 @@ public class Lista<T> {
 		return false;
 	}
 
-	public void adiciona(int posicao, T elemento) {
+	public void adiciona(final int posicao, final T elemento) {
 		aumentaCapacidade();
 		validaPosicao(posicao);
 
@@ -32,7 +32,7 @@ public class Lista<T> {
 		tamanho++;
 	}
 
-	public void remove(int posicao) {
+	public void remove(final int posicao) {
 		validaPosicao(posicao);
 		for (int i = posicao; i < this.tamanho - 1; i++) {
 			this.elementos[i] = this.elementos[i + 1];
@@ -41,7 +41,7 @@ public class Lista<T> {
 		this.tamanho--;
 	}
 
-	private void validaPosicao(int posicao) {
+	private void validaPosicao(final int posicao) {
 		if (!(posicao >= 0 && posicao < tamanho)) {
 			throw new IllegalArgumentException("Posição inválida");
 		}
@@ -49,7 +49,7 @@ public class Lista<T> {
 
 	private void aumentaCapacidade() {
 		if (this.tamanho == this.elementos.length) {
-			T[] elementosNovos = (T[]) new Object[this.elementos.length * 2];
+			final T[] elementosNovos = (T[]) new Object[this.elementos.length * 2];
 
 			for (int i = 0; i < this.elementos.length; i++) {
 				elementosNovos[i] = this.elementos[i];
@@ -59,13 +59,13 @@ public class Lista<T> {
 		}
 	}
 
-	public T busca(int posicao) {
+	public T busca(final int posicao) {
 		validaPosicao(posicao);
 
 		return this.elementos[posicao];
 	}
 
-	public int busca(T elemento) {
+	public int busca(final T elemento) {
 		for (int i = 0; i < this.tamanho; i++) {
 			if (this.elementos[i].equals(elemento)) {
 				return i;
@@ -82,7 +82,7 @@ public class Lista<T> {
 	@Override
 	public String toString() {
 
-		StringBuilder s = new StringBuilder();
+		final StringBuilder s = new StringBuilder();
 		
 		s.append("[");
 

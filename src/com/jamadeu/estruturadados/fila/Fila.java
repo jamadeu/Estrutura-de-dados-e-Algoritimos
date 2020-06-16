@@ -21,14 +21,17 @@ public class Fila<T> extends EstruturaEstatica<T> {
       return null;
     }
 
-    return this.elementos[tamanho - 1];
+    return this.elementos[0];
   }
 
-  public T desinfileira(){
+  public T desinfileira() {
     if (this.estaVazia()) {
       return null;
     }
 
-    return this.elementos[--tamanho];
+    T elemento = this.elementos[0];
+
+    remove(0);
+    return elemento;
   }
 }

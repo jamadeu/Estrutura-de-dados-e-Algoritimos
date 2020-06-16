@@ -4,6 +4,7 @@ public class Lista<T> {
 	private T[] elementos;
 	private int tamanho;
 
+	@SuppressWarnings("unchecked")
 	public Lista(final int capacidade) {
 		this.elementos = (T[]) new Object[capacidade];
 		this.tamanho = 0;
@@ -47,6 +48,7 @@ public class Lista<T> {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	private void aumentaCapacidade() {
 		if (this.tamanho == this.elementos.length) {
 			final T[] elementosNovos = (T[]) new Object[this.elementos.length * 2];

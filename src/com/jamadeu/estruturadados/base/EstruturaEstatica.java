@@ -1,9 +1,11 @@
 package com.jamadeu.estruturadados.base;
 
 public class EstruturaEstatica<T> {
+
   protected T[] elementos;
   protected int tamanho;
 
+  @SuppressWarnings("unchecked")
   public EstruturaEstatica(int capacidade) {
     this.elementos = (T[]) new Object[capacidade];
   }
@@ -44,6 +46,7 @@ public class EstruturaEstatica<T> {
     return true;
   }
 
+  @SuppressWarnings("unchecked")
   private void aumentaCapacidade() {
     if (this.tamanho == this.elementos.length) {
       T[] elementosNovos = (T[]) new Object[this.elementos.length * 2];

@@ -3,6 +3,7 @@ package com.jamadeu.estruturadados.fila;
 public class FilaComPrioridade<T> extends Fila<T> {
   public void enfileira(T elemento) {
 
+    @SuppressWarnings("unchecked")
     Comparable<T> chave = (Comparable<T>) elemento;
 
     int i;
